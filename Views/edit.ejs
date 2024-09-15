@@ -1,0 +1,173 @@
+<!-- component -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <!-- component -->
+  <body
+    
+    
+  >
+  <div class="box" 
+  style="
+  background-image: url('../Views/images/film-102681_1280.jpg');
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(7px);
+">
+
+    <h2
+      class="text-3xl font-semibold mb-4 mx-auto inline flex justify-center"
+      style="
+        position: absolute;
+        top: 16%;
+        left: 50%;
+        transform: translate(-50%);
+      "
+    >
+     Movie Edit Page
+    </h2>
+    <div
+      class="p-8 rounded shadow-2xl border max-w-md w-full mx-auto h-lvh flex justify-center items-center"
+    >
+    <form action="/updateMovie/<%= editData.id %>" method="post" enctype="multipart/form-data">
+      <!-- Nom et Prénom -->
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label
+            for="firstName"
+            class="block text-sm font-medium text-gray-700"
+            >Movie Title:</label
+          >
+          <input
+            type="text"
+            name="title"
+            class="mt-1 p-2 w-full border rounded-md"
+            placeholder="Enter Budget Name"
+            value="<%= editData.title %>"
+          />
+        </div>
+        <div>
+          <label for="genre">Type:</label>
+
+          <select
+            name="Select"
+            id="cars"
+            class="mt-1 p-2 w-full border rounded-md text-base font-medium text-gray-700"
+            value="<%= editData.genre %>"
+          >
+            <!-- <option value="Select">Select</option> -->
+            <option value="" <%= editData.genre === 'Select Type' ? 'selected' : '' %>>Select Type</option>
+            <option value="Action" <%= editData.genre === 'Action' ? 'selected' : '' %>>Action</option>
+            <option value="Comedy" <%= editData.genre === 'Comedy' ? 'selected' : '' %>>Comedy</option>
+            <option value="Drama" <%= editData.genre === 'Drama' ? 'selected' : '' %>>Drama</option>
+            <option value="Horror" <%= editData.genre === 'Horror' ? 'selected' : '' %>>Horror</option>
+          </select>
+        </div>
+        <div class="form-group mr-16">
+          <label for="title">Movie Image: </label>
+          <input type="file" name="image" class="bg-transparent" value="<%= editData.path %>"/>
+        </div>
+      </div>
+
+      <!-- Adresse email -->
+      <div class="mt-4 w-full flex ">
+        
+        
+        <div class="w-4/12 mr-16">
+          <label
+            for="firstName"
+            class="block text-sm font-medium text-gray-700"
+            > Produced by
+          </label>
+          <input
+            type="text"
+            id="Produced"
+            name="Produced"
+            class="mt-1 p-2 w-full border rounded-md"
+            placeholder="1234"
+            value="<%= editData.Produced %>"
+          />
+        </div>
+        <div class="w-4/12">
+          <label
+            for="firstName"
+            class="block text-sm font-medium text-gray-700"
+            >Directed by
+          </label>
+          <input
+            type="text"
+            id="Directed"
+            name="Directed"
+            class="mt-1 p-2 w-full border rounded-md"
+            placeholder="1234"
+            value="<%= editData.Directed %>"
+          />
+        </div>
+      </div>
+
+      <!-- Mot de passe -->
+       <div class="box flex items-center mt-4">
+
+         <div class="w-4/12 mr-16">
+           <label
+             for="firstName"
+             class="block text-sm font-medium text-gray-700"
+             >Rating:
+           </label>
+           <input
+             type="number"
+             id="rating"
+             name="rating"
+             class="mt-1 p-2 w-full border rounded-md"
+             placeholder="1234"
+             value="<%= editData.rating %>"
+           />
+         </div>
+         <div class="">
+          
+   
+         <label for="date" class="block text-sm font-medium text-gray-700"
+           >Release Date:</label
+         >
+         <input
+           type="date"
+           name="releaseDate"
+           id="release-date"
+           class="w-full mt-1 p-2 w-full border rounded-md"
+           value="<%= editData.date %>"
+         />
+         </div>
+       </div>
+      <!-- Bouton d'inscription -->
+      <div class="mt-6">
+        <button
+          type="submit"
+          class="w-full p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+    </div>
+
+    
+  </div>
+  </body>
+</html>
